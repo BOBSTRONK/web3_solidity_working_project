@@ -1,0 +1,70 @@
+node module that starts with @ signs are called scoped packages, and
+this makes it clear which packages are 'official' and which ones are 
+not. for example @angular, you know it's published by angular team
+@nomicfoundation is team that created hardhat
+
+scripts folder: is where we adding any of our scripts that we want to
+write like deploying contracts, interacting with contracts etc.
+
+test folder: testing our smart contract (very important)
+
+harhat.config.js: entry point of all the scripts that we write, it's
+the configuration file that determines how the rest of our code is 
+going to work and interact with the blockchain
+
+yarn hardhat node: to get all the acount we can accessible
+
+yarn hardhat compile: compile the project, after we enter compile,
+we got cache directory which is a quick way to access the solidity files.
+and we also get a artifacts folder, that contains all the info about our
+compiled code
+
+"yarn hardhat run scripts/deploy.js" run this command to execute a scripts in hardhat
+
+hardhat has defaultNetwork that helps user to debug and deploy thier contract, and it 
+automatically comes up with an RPC URL AND a Private Key 
+We can set what network we want use through hardhat.config.js file or we can use the command line
+command: "yarn hardhat run scripts/deploy.js --network hardhat" 
+"yarn hardhat run scripts/deploy.js --network sepolia"
+
+after writing your tasks, you need to add it to the hardhat.config.js.
+after your added it into hardhat.config.js file, you can type:
+"yarn hardhat" in the terminal, and you will see the task you writed
+in the console.
+
+scripts and tasks both can basically do the same thing, they both can 
+interact with contracts, they both can deploy smart contracts,
+they can both pretty much do everything. i prefer scripts just as
+general rule of thumb, because i don't always think adding 
+special thing from the command line make sense.
+Task are nice in specific use-case.
+Tasks are better for plug-in and scripts are better for local development
+
+run "yarn hardhat node" to interact with our contract after deployment
+set localhost variable in the networks section to interact with hardhat
+
+Hardhat console: javascript enviroment to us to run javascript command 
+to interact with any blockchain, we can jump to the console by 
+running "yarn hardhat console --network localhost/anyTestNetWork"
+
+to clean cache and the artifacts directory, we can run: "yarn hardhat clean"
+
+test with modern programming language: more flexibility
+twst with solidity: you stay more close to the code
+
+"yarn hardhat test --grep store" run the specific test function 
+only with the keyword "store" in the description.
+or we can "it.only()" add .only() behind the function and the
+test will run only on this test
+
+add GasReporter to hardhat.config.js and when you run the test,
+it will tell how approximately how much our contracts and
+methods cost， and adding coinmarketcap to know the the cost in usd.
+
+solidity coverage: plugin in hardhat, it's a project that goes
+through all of our tests and sees exactly how many lines of code
+in our contract are actually covered.
+After add the coverage, we can use: "yarn hardhat coverage" to see
+the coverage.
+
+for all the contract.address it's deprecated, use contract.target instead!

@@ -1,0 +1,36 @@
+use solhint npm plug-in to: for linting Solidity code.
+This project provides both Security and Style Guide validations.
+
+"yarn add --dev @chainlink/contracts" to add npm module of chainlink contracts to get data feeds
+
+hardhat-deploy：A Hardhat Plugin For Replicable Deployments And Easy Testing
+ “yarn add --dev @nomiclabs/hardhat-ethers hardhat-deploy-ethers ethers” run this command to add extra features to access deployments as ethers contract.
+ hardhat-deploy will allow you to automatical1 deploy your contract when you run: "yarn hardhat node"
+
+ good pratice: usually to number the deploy contract, so that they run
+ in order that you want them to run.
+
+ made a small change to the priceConverter.sol and FundMe.sol
+
+ multiple compiler version in hardhat.config.js
+
+ if you need to mock something allready exists, you should search first in the github repo,
+ if someone allready did the the mock, and take it to use.
+
+module.exports{ // things you want to get imported when someone import your script in his scripts}
+
+module.exports.tags=["all","mocks"] in javascript file and run “yarn hardhat deploy --tags mocks"
+// set tag then when we run the delopy scripts with --tags
+// and it will only run the deploy scripts that have a special tag.
+
+hardhat.deploy is awsome, because when we run our locl blockchain, our own blockchain node,
+hardhat deploy will automatically run through all of our deploy scripts and add them to our node.
+
+Unit tests are done locally, test minimum portions of our code to make sure that they work! they can be done:
+- local hardhat network
+- forked hardhat network
+Once we verified our portions are working, we go to Staging(integration) tests are done on a testnet (Last Stop!!)
+
+refactor the fundMe contract to make the gas optimization
+
+yarn hardhat test --network sepolia to run test in real testnetwork
