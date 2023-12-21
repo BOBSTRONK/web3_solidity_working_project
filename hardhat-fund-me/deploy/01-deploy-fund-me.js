@@ -56,7 +56,7 @@ module.exports = async (hre) => {
     // who is deploying this
     from: deployer,
     args: args, // its args for the construct,put price feed address, because the constructore need the address
-    log: true,
+    log: true, // set log to be true, to give the log information in the terminal when we execute yarn hardhat node
     waitConfirmations: network.config.blockConfirmations || 1,
   });
 

@@ -1,0 +1,3 @@
+use "yarn create next-app ." to create next.js app
+
+react syntax: allows to do the combination of javascript and html
